@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guessing Game for Tijana Đuđić</title>
+    <title>Guessing Game for Tijana Djudjic  d4f61cfe</title>
 </head>
 <body>
 <h1>Welcome to my guessing game</h1>
@@ -15,12 +15,12 @@ if ( ! isset($_GET['guess'])){
     echo("Your guess is too short");
 } else if (! is_numeric($_GET['guess'])) {
     echo("Your guess is not a number");
-} else if ($_GET['guess'] < 42){
+} else if ($_GET['guess'] < 63){
     echo("Your guess is too low");
-} else if($_GET['guess'] > 42) {
+} else if($_GET['guess'] > 63) {
     echo("Your guess is too high");
 } else {
-    echo("Something");
+    echo("Congratulations - You are right");
 }
 ?>
 </body>
