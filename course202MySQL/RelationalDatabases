@@ -1,0 +1,24 @@
+RELATIONAL DATABASES 
+
+//Integer Reference Pattern
+-we use integer columns in one table 
+to reference (or look uo) rows in 
+another table
+
+//KEYS
+PRIMARY KEY - generally ans integer auto-increment field
+LOGICAL KEY - what the outside world uses for lookup
+FOREIGN KEY - generally an integer key pointing to a row in another table 
+ //best practices
+ -never use your logical key as the primary key 
+ -logical keys can and do change, albeit slowely
+ -relationships that are based on matching string fields -
+ are less efficient than integers
+
+//FOREIGN keys 
+-a foreign key is when a table has a column containing a key 
+that points to the primary key of another table 
+-when all primary keys are integers, then all foreign keys are integers
+
+
+

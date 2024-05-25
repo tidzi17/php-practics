@@ -1,0 +1,130 @@
+People database
+
+CREATE DATABASE People DEFAULT CHARACTER SET utf8;
+/
+CREATE TABLE Users (
+name VARCHAR(128),
+email VARCHAR(128)
+);
+/
+INSERT INTO Users (name, email) VALUES ('Chuck', 'csev@umich.edu');
+INSERT INTO Users (name, email) VALUES ('Somesh', 'somesh@umich.edu');
+INSERT INTO Users (name, email) VALUES ('Caitlin', 'cait@umich.edu');
+INSERT INTO Users (name, email) VALUES ('Ted', 'ted@umich.edu');
+INSERT INTO Users (name, email) VALUES ('Sally', 'sally@umich.edu');
+/
+DELETE FROM Users WHERE email='ted@umich.edu';
+/
+UPDATE Users SET name='Charles' WHERE email='csev@umich.edu';
+/
+SELECT * FROM Users
+SELECT * FROM Users WHERE email='csev@umich.edu';
+SELECT * FROM Users ORDER BY email;
+SELECT * FROM Users WHERE name LIKE '%e%';
+/
+SELECT COUNT(*) FROM Users;
+SELECT COUNT(*) FROM Users WHERE email='csev@umich.edu';
+
+
+
+//String fields
+CHAR allocates the entire space (faster for small strings where length is known)
+VARCHAR allocates a variable amount of spave depending on the data length (less space)
+
+//Text fields
+TINYTEXT up to 255 characters
+TEXT up to 65k
+MEDIUMTEXT up to 16M
+LONGTEXT up to 4G
+
+//Binary Types (rarely used)
+Character = 8 - 32 bits of information depending on character set 
+Byte = 8 bits of information
+    BYTE(n) up to 255 bytes
+    VARBINARY(n) up to 255bytes
+Small images - data 
+
+//Binary Large Objects (BLOB)
+Large raw data, files, images, word documents, PDFs, movies, etc
+No translation, indexing, or character sets
+    TINYBLOB(n) -  up to 255
+    BLOB = up to 65k
+    MEDIUMBLOB up to 16M
+    LONGBLOB up to 4G
+
+
+
+//Integer Numbers 
+Integer numbers are very efficient, tako little storage, and are easy to 
+process because CPUs can often compare them with a single instruction
+    TINY (-128, 128)
+    SMALLINT (-32768, 32768)
+    INT or INTETGER (2 Bilion)
+    BIGINT (10**18 ish)
+
+
+//Floating Point Number
+Floating point numbers can represent a wide range of values,
+but accuracy is limited
+    FLOAT(32-bit) 10**38 with seven digits of accuracy
+    DOUBLE(64-bit) 10*308 with 14 digits of accuracy
+
+
+//Dates 
+    TIMESTAMP - 'YYYY-MM-DD HH:MM:SS' (1970, 2037)
+    DATETIME = 'YYYY-MM-DD HH:MM:SS'
+    DATE - 'YYYY-MM-DD'
+    TIME - 'HH:MM:SS'
+    NOW() - built-in MySQL funciton
+
+//INDEX Types
+    PRIMARY KEY - Very little space, exact match, requires no duplicates,
+    extremely fast for integer fields  
+    INDEX - good for individual row lookup and sorting / grouiping
+    results works best with exact matches or prefix lookups can 
+    suggest HASH or BTREE
+
+//B-Trees
+A B-tree is a tree data structure that keeps data sorted and allows searches,
+sequential access, insertions, and deletion in logarithmic amortized time. The 
+B-tree is optimized for systems that read and write large blocks of data. It is 
+commonly used in databases and file systems 
+
+//HASH
+A hash function is any algorithm or subroutine that maps large data sets to 
+smaller data sets, called keys. For example, a simple integer can serve as an 
+index to an array (cf.associative array). The values returned by a hash function are called
+hash values, hash codes, hash sums, checksums, or simply hashes.%e%
+Hash functions are mostly used to accelerate table lookup or data comparison
+tasks such as finding items in a database
+
+
+
+//AUTO_INCREMENT
+Often as we make multiple tables and need to JOIN them
+together we need an integer primary key for each row
+so we can eddiciently add a reference to a row in some other
+table as a foreign key 
+
+DROP TABLE Users;
+
+CREATE TABLE Users (
+    user_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(128),
+    email VARCHAR(128),
+    PRIMARY KEY(user_id),
+    INDEX(email)
+)
+
+//if forgotten to asign index 
+ALTER TABLE Users ADD INDEX ( email ) USING BTREE;
+
+
+
+SELECT sha1(CONCAT(`name`,age)) AS X FROM Ages ORDER BY X;
+//this command generates a SHA-1 hash for the concatenated name and age columns
+ of each row in the Ages table, assigns this hash to a column named X, and then orders 
+ the results by the value of X.
+
+
+ 
