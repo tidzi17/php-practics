@@ -1,0 +1,67 @@
+Object-oriented programmin is a programming paradigm
+that represents concepts as "objects" that have data
+fields (attributes that describe the object) and associated
+procedures known as methods. Objects, which are usually 
+instances of classes, are used to interact with one another to 
+design applications and computer programs.
+
+*Class - a template
+*Method - a defined capability of a class
+*Object or Instance - a particular instance of a class
+*Contructor - a method which is called when the instance / object is created
+*Inheritance - the ability to take a class and extend it to make a new class
+
+//Class
+-Defines the abstract characteristics of a thing(object)
+including the things's charasteristics (its attributes, fields or properties) and the thing's behaviours (the thing it can do, or methods, operations, or features).
+One might say that a class is a blueprint or factory that describes the nature of something. For example, the class Dog would consist of traits shared by all dogs, such as breed and fur color (characterists), and the ability to bark and sit (behaviour).
+
+//Instance
+-One can have an instance of a class or particular object. The instance is the actual object created at runtime. In programmer jargon, the Lassie object is an instance of the Dog class. The set of values of the attributes of a particular object is called its state. The object consists of state and the behavior that is defined in the objects class. Object and Instance are often used interchangeably.
+
+//Method
+-An object's abilities. In language, methods are verbs. Lassie, being a Dog, has the abiliity to bark.  So bark() is one of Lassie's methods. She may have other methods as well for example sit() or eat() or walk() or save_tummy(). Within the program, using a method usually affects only one particular object; all Dogs can bark, but you need only one particular dog to do the barking. Method and Message are often used interchangeably.
+
+
+
+
+*Access "static item" in class
+-echo DateTime::RFC822
+*Access item in an object//'->within'
+-echo $z->format('Y-m-d)//entering a function named format within an object named $z
+
+
+OBJECT LIFE CYCLE
+
+*Objects are created, used and discreated
+*We have special blocks of code(method) that get called
+    -At the moment of creation (constructor)
+    -At the moment of descruction (destructor)
+*Contructors are used a lot
+*Destructors are seldom used.
+
+//Constructor
+-The primary purpose of the constructor is to set up some instance variables to have the proper initial values then the object is created
+
+
+//Many instances
+-we can create lots of objects - the class is the template for the object
+-we can store each distinct object in it own variable
+-we call this having multiple instances of the same class
+-each instance has its own copy of the intance variables
+
+
+
+INHERITANCE
+-when we make a new class we can reuse an existing class and inherit all the capabilities of an existing class and then add our own little bit to make out new class
+-another form of store and reuse
+-write once - reuse many times
+-the new class (child) has all the capabilities of the old class (parent) and then some more
+"Subclasses" are more specialized verisons of a class, which inherit attributes and behavior from their parent classes, and can introduce their own
+
+
+VISIBILITY
+Class member variables also have scope.
+*Public - can be accessed outside the class, inside the class, and in derived classes
+*Protected - can be accessed inside the class, and in derived classes
+*Private - can only be accessed inside the class (i.e. private variables are not visible in derived classes)
